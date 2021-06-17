@@ -1,5 +1,5 @@
 import React from 'react';
-import Todo from './components/UI/molecules/side/Todo';
+import TodoCreate from './components/UI/molecules/side/TodoCreate';
 
 // function getTime() {
 //   const date = new Date();
@@ -18,7 +18,7 @@ function App() {
   // }, []);
   return (
     <div>
-      <Todo />
+      <TodoCreate />
     </div>
   );
 }
