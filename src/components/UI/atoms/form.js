@@ -6,7 +6,6 @@ const PostFormStyle = styled.form`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  margin-left: 16px;
   border-radius: 8px;
   border: 1px solid #dde1e7;
 `;

@@ -1,25 +1,19 @@
 import React from 'react';
-import TodoCreate from './components/UI/molecules/side/TodoCreate';
+import styled from 'styled-components';
+import TodoTemplate from './components/templates/TodoTemplate';
 
-// function getTime() {
-//   const date = new Date();
-//   const year = date.getFullYear();
-//   const month = date.getMonth();
-//   const day = date.getDay();
-//   const minutes = date.getMinutes();
-//   const hours = date.getHours();
-//   const seconds = date.getSeconds();
-// }
+const StyledApp = styled.div`
+  background-color: #eeeeee;
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+`;
 
 function App() {
-  // useEffect(() => {
-  //   getTime();
-  //   setInterval(getTime, 1000);
-  // }, []);
   return (
-    <div>
-      <TodoCreate />
-    </div>
+    <StyledApp>
+      <TodoTemplate />
+    </StyledApp>
   );
 }
 

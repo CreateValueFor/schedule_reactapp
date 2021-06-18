@@ -10,8 +10,11 @@ const CircularSign = styled.div`
   background-position: 50%;
   background-repeat: no-repeat;
   cursor: pointer;
+  margin: ${(props) => props.margin};
 `;
 
-export const Sign = ({ svg, bgcolor }) => {
-  return <CircularSign svg={svg} bgcolor={bgcolor}></CircularSign>;
+export const Sign = ({ svg, bgcolor, margin }) => {
+  return (
+    <CircularSign margin={margin} svg={svg} bgcolor={bgcolor}></CircularSign>
+  );
 };

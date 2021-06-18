@@ -13,7 +13,7 @@ const PostHeaderStyle = styled.h1`
   margin: ${(props) => props.margin};
 `;
 
-const PostTitleStyle = styled.h2`
+export const PostTitleStyle = styled.h2`
   font-family: 'Roboto', 'Noto Sans KR', 'Noto Sans JP', 'Noto Sans SC',
     sans-serif;
   font-size: 20px;

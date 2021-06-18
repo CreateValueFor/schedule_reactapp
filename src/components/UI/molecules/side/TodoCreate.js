@@ -6,13 +6,18 @@ import { PostForm } from '../../atoms/form';
 import { PostInput, PostLabelInput } from '../../atoms/input';
 
 const StyledTodoCreate = styled.div`
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+  width: 100%;
+  flex-direction: column;
+
   button {
     transition: 0.125s all ease-in;
     ${(props) =>
       props.open &&
       css`
         transform: rotate(45deg);
-        background-color: red;
       `}
   }
 `;
@@ -24,7 +29,7 @@ function TodoCreate() {
     console.log(e);
   };
   return (
-    <StyledTodoCreate>
+    <StyledTodoCreate open={inputBtn}>
       <CircleButton
         margin={'px'}
         open={inputBtn}
