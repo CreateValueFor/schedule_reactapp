@@ -13,8 +13,13 @@ const CircularSign = styled.div`
   margin: ${(props) => props.margin};
 `;
 
-export const Sign = ({ svg, bgcolor, margin }) => {
+export const Sign = ({ svg, bgcolor, margin, onClick }) => {
   return (
-    <CircularSign margin={margin} svg={svg} bgcolor={bgcolor}></CircularSign>
+    <CircularSign
+      onClick={onClick}
+      margin={margin}
+      svg={svg}
+      bgcolor={bgcolor}
+    ></CircularSign>
   );
 };

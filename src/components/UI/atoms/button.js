@@ -18,7 +18,7 @@ const DefaultCircleButton = styled.button`
   }
 `;
 
-const DefaultRectangleButton = styled.button`
+export const DefaultRectangleButton = styled.button`
   padding: ${(props) => props.padding};
   border-radius: 8px;
   font-family: 'Montserrat', 'Noto Sans KR', 'Noto Sans JP', 'Noto Sans SC',
@@ -42,13 +42,13 @@ const DefaultRectangleButton = styled.button`
   }
 `;
 
-export const CircleButton = ({ margin, onClick, svg, color }) => {
+export const CircleButton = ({ margin, svg, onClick, ...props }) => {
   return (
     <DefaultCircleButton
       onClick={onClick}
       svg={svg}
       margin={margin}
-      color={color}
+      name={props.name && props.name}
     ></DefaultCircleButton>
   );
 };

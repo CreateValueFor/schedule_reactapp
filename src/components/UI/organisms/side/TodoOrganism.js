@@ -1,5 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
+import { useTodoState } from '../../../pages/TodoPage';
+import { LockOver } from '../../atoms/lockOverlay';
 import TodoItem from './TodoItem';
 
 const StyledSideMain = styled.div`
@@ -7,7 +9,7 @@ const StyledSideMain = styled.div`
   padding: 30px 10px;
   justify-content: space-between;
   border-bottom: 1px solid rgba(0, 0, 0, 0.15);
-  height: 80%;
+  height: 70%;
   overflow-y: scroll;
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
@@ -17,13 +19,22 @@ const StyledSideMain = styled.div`
 `;
 
 function TodoOrganism() {
+  const { todos } = useTodoState();
   return (
     <StyledSideMain>
-      <TodoItem />
-      <TodoItem />
-      <TodoItem />
-      <TodoItem />
-      <TodoItem />
+      {todos.map((todo) => (
+        <>
+          {todo.done && <LockOver width={'520px'} height={'40px'}></LockOver>}
+          <TodoItem
+            key={todo.id}
+            id={todo.id}
+            text={todo.todo}
+            done={todo.done}
+            label={todo.label}
+            grade={todo.grade}
+          />
+        </>
+      ))}
     </StyledSideMain>
   );
 }

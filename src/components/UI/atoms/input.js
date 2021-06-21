@@ -8,6 +8,7 @@ const PostInputStyle = styled.input`
     sans-serif;
   line-height: 1.2;
   font-size: 16px;
+  outline: none;
   color: #333;
   padding: ${(props) => props.padding};
 `;
@@ -28,18 +29,34 @@ const PostLabelInputStyle = styled.input`
   padding: ${(props) => props.padding};
 `;
 
-export const PostInput = ({ padding, placeholder }) => {
+export const PostInput = ({ onChange, padding, placeholder, name, value }) => {
   return (
-    <PostInputStyle type="text" padding={padding} placeholder={placeholder} />
+    <PostInputStyle
+      type="text"
+      onChange={onChange}
+      padding={padding}
+      placeholder={placeholder}
+      name={name}
+      value={value}
+    />
   );
 };
 
-export const PostLabelInput = ({ padding, placeholder }) => {
+export const PostLabelInput = ({
+  onChange,
+  padding,
+  placeholder,
+  name,
+  value,
+}) => {
   return (
     <PostLabelInputStyle
       type="text"
       padding={padding}
       placeholder={placeholder}
+      onChange={onChange}
+      name={name}
+      value={value}
     />
   );
 };

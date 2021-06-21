@@ -29,7 +29,7 @@ export const PostTitleStyle = styled.h2`
   align-items: center;
 `;
 
-const PostLabelStyle = styled.div`
+export const PostLabelStyle = styled.div`
   font-family: 'Roboto', 'Noto Sans KR', 'Noto Sans JP', 'Noto Sans SC',
     sans-serif;
   font-size: 11px;

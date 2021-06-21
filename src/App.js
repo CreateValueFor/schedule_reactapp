@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import TodoTemplate from './components/templates/TodoTemplate';
+import { dbService } from './firebase';
 
 const StyledApp = styled.div`
   background-color: #eeeeee;

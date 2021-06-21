@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+
 import Todo from '../../molecules/side/Todo';
 import TodoButton from '../../molecules/side/TodoButton';
 
@@ -8,16 +9,18 @@ const StyledTodoItem = styled.div`
   width: 100%;
   margin-bottom: 10px;
   border-radius: 8px;
-  &:hover {
-    background-color: #e0e0e0;
+  &.inactive {
+    &:hover {
+      background: #e0e0e0;
+    }
   }
 `;
 
-function TodoItem() {
+function TodoItem({ id, text, label, done, grade }) {
   return (
-    <StyledTodoItem>
-      <Todo />
-      <TodoButton />
+    <StyledTodoItem className={done ? 'active' : 'inactive'}>
+      <Todo id={id} done={done} text={text} label={label} grade={grade} />
+      <TodoButton id={id} grade={grade} />
     </StyledTodoItem>
   );
 }
