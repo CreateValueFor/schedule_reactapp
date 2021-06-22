@@ -90,7 +90,7 @@ export function TodoProvider({ children }) {
   };
 
   useEffect(() => {
-    console.log(getDaily());
+    getDaily();
   }, []);
 
   return (

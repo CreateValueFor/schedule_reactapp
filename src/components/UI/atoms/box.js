@@ -1,8 +1,9 @@
 import styled from 'styled-components';
 
-const StyledFlexBox = styled.div`
+export const StyledFlexBox = styled.div`
   display: flex;
-  flex: 1;
+  /* flex: 1; */
+  border-radius: 8px;
   flex-direction: ${(props) => props.dir};
   margin: ${(props) => props.margin};
   padding: ${(props) => props.padding};

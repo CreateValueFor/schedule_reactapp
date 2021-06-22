@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
+import CalendarTemplate from './components/templates/CalendarTemplate';
 import TodoTemplate from './components/templates/TodoTemplate';
-import { dbService } from './firebase';
 
 const StyledApp = styled.div`
   background-color: #eeeeee;
@@ -13,6 +13,7 @@ const StyledApp = styled.div`
 function App() {
   return (
     <StyledApp>
+      <CalendarTemplate />
       <TodoTemplate />
     </StyledApp>
   );

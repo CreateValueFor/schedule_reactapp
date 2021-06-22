@@ -11,7 +11,7 @@ function LeftHeader({ goal }) {
 
   const date = new Date();
   const year = date.getFullYear();
-  const month = date.getMonth();
+  const month = date.getMonth() + 1;
   const day = date.getDate();
   const minutes = date.getMinutes();
   const hours = date.getHours();
@@ -46,10 +46,10 @@ function LeftHeader({ goal }) {
     <div>
       <PostTitle>
         {`${year}년 
-          ${month > 10 ? month : `0${month}`}월 
-          ${day > 10 ? day : `0${day}`}일 
-          ${hours > 10 ? hours : `0${hours}`}시 
-          ${minutes > 10 ? minutes : `0${minutes}`}분 
+          ${month >= 10 ? month : `0${month}`}월 
+          ${day >= 10 ? day : `0${day}`}일 
+          ${hours >= 10 ? hours : `0${hours}`}시 
+          ${minutes >= 10 ? minutes : `0${minutes}`}분 
           `}
         <RectangleButton onClick={saveSchedule}>저장</RectangleButton>
       </PostTitle>
