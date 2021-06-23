@@ -10,7 +10,7 @@ import Close from '../../../../assets/svg/close-light.svg';
 import { FlexBox } from '../../atoms/box';
 import { useTodoDispatch } from '../../../pages/TodoPage';
 
-const StyledTodo = styled.div`
+export const StyledTodo = styled.div`
   display: flex;
   flex: 1;
   align-items: center;
@@ -31,11 +31,11 @@ const StyledTodo = styled.div`
     }};
   }
 `;
-const RestyleRectangleButton = styled(DefaultRectangleButton)`
+export const RestyleRectangleButton = styled(DefaultRectangleButton)`
   color: #f35750;
 `;
 
-const RestylePostLabel = styled(PostLabelStyle)`
+export const RestylePostLabel = styled(PostLabelStyle)`
   font-size: 18px;
 `;
 
@@ -83,7 +83,7 @@ function Todo({ text, label, done, grade, id }) {
           ) : (
             <CircleButton margin={'0px'} onClick={moreClick} svg={Close} />
           )}
-          <CircleButton margin={'px'} onClick svg={Edit} />
+          <CircleButton margin={'px'} onClick={() => {}} svg={Edit} />
         </FlexBox>
         <FlexBox dir={'column'}>
           {more && (

@@ -15,7 +15,7 @@ function Progressbar() {
   const sosoTasks = todos.filter((todo) => todo.grade === 'soso').length;
   const badTasks = todos.filter((todo) => todo.grade === 'bad').length;
   const achievement =
-    ((goodTasks * 2 + sosoTasks * 1 + badTasks * 0) / todos.length) * 100;
+    ((goodTasks * 1 + sosoTasks * 0.5 + badTasks * 0) / todos.length) * 100;
   return (
     <>
       <PostTitleStyle margin={'10px'}>

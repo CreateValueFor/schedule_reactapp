@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const DefaultCircleButton = styled.button`
+export const DefaultCircleButton = styled.button`
   width: 32px;
   height: 32px;
   border-radius: 50%;

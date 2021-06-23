@@ -1,22 +1,39 @@
 import React, { createContext, useContext, useReducer } from 'react';
-import styled from 'styled-components';
+import { dbService } from '../../firebase';
 
 //day
 const dayjs = require('dayjs');
 const weekday = require('dayjs/plugin/weekday');
 const isoWeek = require('dayjs/plugin/isoWeek');
 const weekOfYear = require('dayjs/plugin/weekOfYear');
+const relativeTime = require('dayjs/plugin/relativeTime');
 // day extend
 dayjs.extend(weekday);
 dayjs.extend(isoWeek);
 dayjs.extend(weekOfYear);
-
-const StyledCalendarPage = styled.div``;
+dayjs.extend(relativeTime);
 
 let initialState = {
   viewDate: dayjs(),
   selectDate: dayjs(),
   today: dayjs(),
+  isModal: false,
+  selectDateTodos: [
+    {
+      id: 1,
+      todo: '8시 기상',
+      label: '아침 습관 들이기',
+      done: false,
+      grade: '',
+    },
+    {
+      id: 2,
+      todo: '9시 기상',
+      label: '아침 습관 들이기',
+      done: false,
+      grade: '',
+    },
+  ],
 };
 
 function Calendarreducer(state, action) {
@@ -26,7 +43,14 @@ function Calendarreducer(state, action) {
     case 'SUBSTRACT':
       return { ...state, viewDate: state.viewDate.subtract(1, 'month') };
     case 'SELECT':
-      return { ...state, selectDate: action.current };
+      return {
+        ...state,
+        selectDate: action.current,
+        isModal: !state.isModal,
+        selectDateTodos: action.selectDateTodos,
+      };
+    case 'CLOSE_MODAL':
+      return { ...state, isModal: !state.isModal, selectDateTodos: [] };
     default:
       throw new Error(`Unhandled action type: ${action.type}`);
   }
@@ -60,9 +84,5 @@ export function useCalendarDispatch() {
   }
   return context;
 }
-
-function CalendarPage() {
-  return <StyledCalendarPage></StyledCalendarPage>;
-}
-
-export default CalendarPage;
+//이거 왜 default 안 하면 안되는 지 물어보기
+export default CalendarProvider;

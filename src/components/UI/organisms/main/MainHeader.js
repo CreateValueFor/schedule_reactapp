@@ -4,6 +4,7 @@ import { StyledFlexBox } from '../../atoms/box';
 import MainItemProgress from '../../molecules/main/MainItemProgress';
 import ModalButtonContainer from '../../molecules/main/ModalButtonContainer';
 import MonthCurrent from '../../molecules/main/MonthCurrent';
+import CalendarHeader from './MainCalendarHeader';
 
 const StyledMainHeader = styled(StyledFlexBox)`
   height: 16.1%;
@@ -17,7 +18,9 @@ function MainHeader() {
   return (
     <StyledMainHeader dir={'row'}>
       <MainItemProgress></MainItemProgress>
-      <MonthCurrent></MonthCurrent>
+      <MonthCurrent>
+        <CalendarHeader></CalendarHeader>
+      </MonthCurrent>
       <ModalButtonContainer></ModalButtonContainer>
     </StyledMainHeader>
   );

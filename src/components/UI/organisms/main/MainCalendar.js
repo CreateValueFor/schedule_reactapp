@@ -1,6 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
+import { useCalendarState } from '../../../pages/CalendarPage';
 import { StyledFlexBox } from '../../atoms/box';
+import Modal from '../modal';
+import DailyModal from './DailyModal';
+import MainCalendarBody from './MainCalendarBody';
 import MainCalendarHeader from './MainCalendarHeader';
 
 const StyledMainCalendar = styled(StyledFlexBox)`
@@ -11,9 +15,15 @@ const StyledMainCalendar = styled(StyledFlexBox)`
 `;
 
 function MainCalendar() {
+  const { isModal } = useCalendarState();
   return (
     <StyledMainCalendar>
-      <MainCalendarHeader></MainCalendarHeader>
+      <MainCalendarBody></MainCalendarBody>
+      {isModal && (
+        <Modal>
+          <DailyModal></DailyModal>
+        </Modal>
+      )}
     </StyledMainCalendar>
   );
 }

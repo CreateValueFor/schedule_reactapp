@@ -3,6 +3,8 @@ import styled from 'styled-components';
 import MainCalendar from '../UI/organisms/main/MainCalendar';
 import MainHeader from '../UI/organisms/main/MainHeader';
 import CalendarProvider from '../pages/CalendarPage';
+import Modal from '../UI/organisms/modal';
+import TodoTemplate from './TodoTemplate';
 
 const StyledCalendarTemplate = styled.div`
   width: 56.45%;

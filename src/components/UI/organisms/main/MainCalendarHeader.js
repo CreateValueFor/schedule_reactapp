@@ -6,31 +6,14 @@ import {
   useCalendarDispatch,
   useCalendarState,
 } from '../../../pages/CalendarPage';
+import { PostTitle } from '../../atoms/text';
+import { CircleButton } from '../../atoms/button';
 
 const StyledHeader = styled.div`
   display: flex;
   justify-content: center;
   align-content: center;
   margin: 20px;
-  .thisMonth {
-    font-weight: 700;
-    color: #292929;
-    line-height: 24px;
-  }
-  button {
-    width: 24px;
-    margin: 0 8px;
-  }
-  .previous_icon {
-    width: 24px;
-    height: 24px;
-    background: url(${previous}) center no-repeat;
-  }
-  .next_icon {
-    width: 24px;
-    height: 24px;
-    background: url(${next}) center no-repeat;
-  }
 `;
 
 function CalendarHeader() {
@@ -39,23 +22,25 @@ function CalendarHeader() {
 
   return (
     <StyledHeader>
-      <button
-        className="previous_icon"
+      <CircleButton
         onClick={() =>
           dispatch({
             type: 'SUBSTRACT',
           })
         }
-      ></button>
-      <span className="thisMonth">{viewDate.format('MM')}월</span>
-      <button
-        className="next_icon"
+        margin={'0px 8px'}
+        svg={previous}
+      ></CircleButton>
+      <PostTitle>{viewDate.format('YY년-MM월')}</PostTitle>
+      <CircleButton
         onClick={() =>
           dispatch({
             type: 'ADD',
           })
         }
-      ></button>
+        margin={'0px 8px'}
+        svg={next}
+      ></CircleButton>
     </StyledHeader>
   );
 }
