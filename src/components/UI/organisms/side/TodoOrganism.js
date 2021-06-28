@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 import { useTodoState } from '../../../pages/TodoPage';
-import { LockOver } from '../../atoms/lockOverlay';
 import TodoItem from './TodoItem';
 
 const StyledSideMain = styled.div`
@@ -23,8 +22,7 @@ function TodoOrganism() {
   return (
     <StyledSideMain>
       {todos.map((todo) => (
-        <>
-          {todo.done && <LockOver width={'520px'} height={'40px'}></LockOver>}
+        <div>
           <TodoItem
             key={todo.id}
             id={todo.id}
@@ -33,7 +31,7 @@ function TodoOrganism() {
             label={todo.label}
             grade={todo.grade}
           />
-        </>
+        </div>
       ))}
     </StyledSideMain>
   );

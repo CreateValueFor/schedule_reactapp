@@ -63,14 +63,19 @@ function MainCalendarContent() {
   const endWeek =
     viewDate.endOf('month').week() === 1 ? 53 : viewDate.endOf('month').week();
   const fetchDaily = async (current) => {
+    console.log(current);
     await dbService
       .collection('daily')
       .doc(`${current.format('YYYY. M. D.')}`)
       .onSnapshot((docs) => {
         try {
-          console.log(docs.data().todos);
+          // console.log(docs.data().todos);
           setSelectDaily(docs.data().todos);
-          console.log(selectDaily);
+          dispatch({
+            type: 'OPEN_MODAL',
+            selectDateTodos: selectDaily,
+            selectDate,
+          });
         } catch (error) {
           window.alert(error);
         }
@@ -108,14 +113,15 @@ function MainCalendarContent() {
               <>
                 <StyledMainCalendarContent key={`${week}_${i}`}>
                   <DayButton
+                    key={`${week}_${i}`}
                     className={`${isSelected} ${isToday} ${isNone}`}
                     onClick={() => {
-                      const dailyArray = fetchDaily(selectDate);
                       dispatch({
-                        type: 'SELECT',
-                        current: current,
-                        selectDateTodos: selectDaily,
+                        type: 'SELECT_DATE',
+                        current,
                       });
+
+                      const dailyArray = fetchDaily(selectDate);
                     }}
                   >
                     <DayText>{current.format('D')}</DayText>

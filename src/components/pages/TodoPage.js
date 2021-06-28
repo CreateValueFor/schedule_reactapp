@@ -17,13 +17,6 @@ let initialState = {
       done: false,
       grade: '',
     },
-    {
-      id: 2,
-      todo: '9시 기상',
-      label: '아침 습관 들이기',
-      done: false,
-      grade: '',
-    },
   ],
 };
 
@@ -73,7 +66,7 @@ const TodoNextIdContext = createContext();
 
 export function TodoProvider({ children }) {
   const [state, dispatch] = useReducer(reducer, initialState);
-  const nextId = useRef(3);
+  let nextId = useRef(2);
   // 데이터 탐색을 위한 Date객체
   const date = new Date();
   const getDaily = async () => {
@@ -81,11 +74,14 @@ export function TodoProvider({ children }) {
       .collection('daily')
       .doc(`${date.toLocaleDateString()}`)
       .onSnapshot((docs) => {
-        const dailyArray = docs.data().todos;
-        dispatch({
-          type: 'INITIALIZE',
-          todos: dailyArray,
-        });
+        if (docs.data().todos) {
+          const dailyArray = docs.data().todos;
+
+          dispatch({
+            type: 'INITIALIZE',
+            todos: dailyArray,
+          });
+        }
       });
   };
 

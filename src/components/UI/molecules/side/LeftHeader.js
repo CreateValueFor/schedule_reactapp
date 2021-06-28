@@ -41,7 +41,7 @@ function LeftHeader({ goal }) {
       });
     window.confirm('저장되었습니다.');
   };
-
+  //content-editable 사용 고려
   return (
     <div>
       <PostTitle>

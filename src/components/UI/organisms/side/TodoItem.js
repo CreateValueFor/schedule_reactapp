@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { LockOver } from '../../atoms/lockOverlay';
 
 import Todo from '../../molecules/side/Todo';
 import TodoButton from '../../molecules/side/TodoButton';
@@ -18,10 +19,13 @@ const StyledTodoItem = styled.div`
 
 function TodoItem({ id, text, label, done, grade }) {
   return (
-    <StyledTodoItem className={done ? 'active' : 'inactive'}>
-      <Todo id={id} done={done} text={text} label={label} grade={grade} />
-      <TodoButton id={id} grade={grade} />
-    </StyledTodoItem>
+    <>
+      {done && <LockOver width={'520px'} height={'40px'}></LockOver>}
+      <StyledTodoItem className={done ? 'active' : 'inactive'}>
+        <Todo id={id} done={done} text={text} label={label} grade={grade} />
+        <TodoButton id={id} grade={grade} />
+      </StyledTodoItem>
+    </>
   );
 }
 

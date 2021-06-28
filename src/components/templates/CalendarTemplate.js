@@ -12,7 +12,7 @@ const StyledCalendarTemplate = styled.div`
   position: absolute;
   left: 50px;
   bottom: 50px;
-  border: 1px solid black;
+
   border-radius: 8px;
   background: #fff;
 `;

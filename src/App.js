@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 import CalendarTemplate from './components/templates/CalendarTemplate';
+import SummaryTemplate from './components/templates/SummaryTemplate';
 import TodoTemplate from './components/templates/TodoTemplate';
-import Modal from './components/UI/organisms/modal';
 
 const StyledApp = styled.div`
   background-color: #eeeeee;
@@ -14,9 +14,9 @@ const StyledApp = styled.div`
 function App() {
   return (
     <StyledApp>
+      <SummaryTemplate />
       <CalendarTemplate />
       <TodoTemplate />
-      {/* <Modal /> */}
     </StyledApp>
   );
 }

@@ -42,10 +42,16 @@ function Calendarreducer(state, action) {
       return { ...state, viewDate: state.viewDate.add(1, 'month') };
     case 'SUBSTRACT':
       return { ...state, viewDate: state.viewDate.subtract(1, 'month') };
-    case 'SELECT':
+    case 'SELECT_DATE':
       return {
         ...state,
         selectDate: action.current,
+      };
+    case 'OPEN_MODAL':
+      console.log(action.selectDate);
+      console.log('hi');
+      return {
+        ...state,
         isModal: !state.isModal,
         selectDateTodos: action.selectDateTodos,
       };

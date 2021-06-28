@@ -22,13 +22,14 @@ const CloseButton = styled(DefaultCircleButton)`
   background-position: 50%;
   border-radius: 50%;
   margin-left: auto;
+  z-index: 10;
 `;
 
 function DailyModal() {
   const state = useCalendarState();
   const dispatch = useCalendarDispatch();
   const { selectDateTodos } = state;
-  console.log(state);
+
   const { selectDate } = state;
   const onClick = () => {
     dispatch({

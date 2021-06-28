@@ -23,7 +23,7 @@ function ModalItem({ text, label, done, grade, id }) {
   };
   const onClear = () => {};
   const onRemove = () => {};
-  const onToggle = () => {};
+
   return (
     <FlexBox dir={'row'}>
       <StyledTodo grade={grade}>
@@ -64,31 +64,6 @@ function ModalItem({ text, label, done, grade, id }) {
           </FlexBox>
         </FlexBox>
       </StyledTodo>
-      <div>
-        {/* 완료도 평가 */}
-        {/* 스타일드div props지정안했을 때 넣는 법 */}
-        <CircleButton
-          name="good"
-          onClick={onToggle}
-          margin={'0px'}
-          svg={ThumbsUp}
-          color
-        />
-        <CircleButton
-          name="soso"
-          onClick={onToggle}
-          margin={'0px'}
-          svg={Circle}
-          color
-        />
-        <CircleButton
-          name="bad"
-          onClick={onToggle}
-          margin={'0px'}
-          svg={ThumbsDown}
-          color
-        />
-      </div>
     </FlexBox>
   );
 }
