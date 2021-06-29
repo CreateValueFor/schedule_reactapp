@@ -1,0 +1,31 @@
+{
+  "files": {
+    "main.css": "/schedule_reactapp/static/css/main.91eb2616.chunk.css",
+    "main.js": "/schedule_reactapp/static/js/main.fee9f468.chunk.js",
+    "main.js.map": "/schedule_reactapp/static/js/main.fee9f468.chunk.js.map",
+    "runtime-main.js": "/schedule_reactapp/static/js/runtime-main.6bb93b32.js",
+    "runtime-main.js.map": "/schedule_reactapp/static/js/runtime-main.6bb93b32.js.map",
+    "static/js/2.cf3a9045.chunk.js": "/schedule_reactapp/static/js/2.cf3a9045.chunk.js",
+    "static/js/2.cf3a9045.chunk.js.map": "/schedule_reactapp/static/js/2.cf3a9045.chunk.js.map",
+    "index.html": "/schedule_reactapp/index.html",
+    "static/css/main.91eb2616.chunk.css.map": "/schedule_reactapp/static/css/main.91eb2616.chunk.css.map",
+    "static/js/2.cf3a9045.chunk.js.LICENSE.txt": "/schedule_reactapp/static/js/2.cf3a9045.chunk.js.LICENSE.txt",
+    "static/media/book-solid.03e5ef18.svg": "/schedule_reactapp/static/media/book-solid.03e5ef18.svg",
+    "static/media/check-light.d63e2f1c.svg": "/schedule_reactapp/static/media/check-light.d63e2f1c.svg",
+    "static/media/circle-regular.cc5af16b.svg": "/schedule_reactapp/static/media/circle-regular.cc5af16b.svg",
+    "static/media/close-light.ee9aede1.svg": "/schedule_reactapp/static/media/close-light.ee9aede1.svg",
+    "static/media/edit-solid.4ffe848a.svg": "/schedule_reactapp/static/media/edit-solid.4ffe848a.svg",
+    "static/media/more-light.f601fd6a.svg": "/schedule_reactapp/static/media/more-light.f601fd6a.svg",
+    "static/media/next_arrow.63680cf8.svg": "/schedule_reactapp/static/media/next_arrow.63680cf8.svg",
+    "static/media/plus-solid.c82024f4.svg": "/schedule_reactapp/static/media/plus-solid.c82024f4.svg",
+    "static/media/prev_arrow.0734b900.svg": "/schedule_reactapp/static/media/prev_arrow.0734b900.svg",
+    "static/media/thumbs-down-regular.6e079b49.svg": "/schedule_reactapp/static/media/thumbs-down-regular.6e079b49.svg",
+    "static/media/thumbs-up-regular.46046a17.svg": "/schedule_reactapp/static/media/thumbs-up-regular.46046a17.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.6bb93b32.js",
+    "static/js/2.cf3a9045.chunk.js",
+    "static/css/main.91eb2616.chunk.css",
+    "static/js/main.fee9f468.chunk.js"
+  ]
+}
