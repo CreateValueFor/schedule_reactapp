@@ -74,7 +74,7 @@ export function TodoProvider({ children }) {
       .collection('daily')
       .doc(`${date.toLocaleDateString()}`)
       .onSnapshot((docs) => {
-        if (docs.data().todos) {
+        if (docs.data() && docs.data().todos) {
           const dailyArray = docs.data().todos;
 
           dispatch({

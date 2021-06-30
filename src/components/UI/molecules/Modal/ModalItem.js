@@ -12,9 +12,6 @@ import { PostTitle } from '../../atoms/text';
 import { CircleButton } from '../../atoms/button';
 import More from '../../../../assets/svg/more-light.svg';
 import Edit from '../../../../assets/svg/edit-solid.svg';
-import ThumbsUp from '../../../../assets/svg/thumbs-up-regular.svg';
-import ThumbsDown from '../../../../assets/svg/thumbs-down-regular.svg';
-import Circle from '../../../../assets/svg/circle-regular.svg';
 
 function ModalItem({ text, label, done, grade, id }) {
   const [more, setMore] = useState(false);

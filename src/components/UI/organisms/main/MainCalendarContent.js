@@ -55,32 +55,12 @@ const DayText = styled(PostLabelStyle)`
 `;
 
 function MainCalendarContent() {
-  const { viewDate, selectDate, today } = useCalendarState();
+  const { viewDate, selectDate, today, selectDateTodos } = useCalendarState();
   const dispatch = useCalendarDispatch();
-  const [selectDaily, setSelectDaily] = useState([]);
-
   const startWeek = viewDate.startOf('month').week();
   const endWeek =
     viewDate.endOf('month').week() === 1 ? 53 : viewDate.endOf('month').week();
-  const fetchDaily = async (current) => {
-    console.log(current);
-    await dbService
-      .collection('daily')
-      .doc(`${current.format('YYYY. M. D.')}`)
-      .onSnapshot((docs) => {
-        try {
-          // console.log(docs.data().todos);
-          setSelectDaily(docs.data().todos);
-          dispatch({
-            type: 'OPEN_MODAL',
-            selectDateTodos: selectDaily,
-            selectDate,
-          });
-        } catch (error) {
-          window.alert(error);
-        }
-      });
-  };
+
   let calender = [];
   for (let week = startWeek; week <= endWeek; week++) {
     calender.push(
@@ -115,13 +95,23 @@ function MainCalendarContent() {
                   <DayButton
                     key={`${week}_${i}`}
                     className={`${isSelected} ${isToday} ${isNone}`}
-                    onClick={() => {
+                    onClick={async () => {
+                      console.log(current.format('YYYY. M. D.'));
                       dispatch({
                         type: 'SELECT_DATE',
                         current,
                       });
-
-                      const dailyArray = fetchDaily(selectDate);
+                      await dbService
+                        .collection('daily')
+                        .doc(`${current.format('YYYY. M. D.')}`)
+                        .get()
+                        .then((docs) => {
+                          console.log(docs.data());
+                          dispatch({
+                            type: 'SET_MODAL',
+                            selectDateTodos: docs.data(),
+                          });
+                        });
                     }}
                   >
                     <DayText>{current.format('D')}</DayText>

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import styled from 'styled-components';
 import {
   useCalendarDispatch,
@@ -28,14 +28,17 @@ const CloseButton = styled(DefaultCircleButton)`
 function DailyModal() {
   const state = useCalendarState();
   const dispatch = useCalendarDispatch();
-  const { selectDateTodos } = state;
 
-  const { selectDate } = state;
+  const { selectDate, selectDateTodos } = state;
   const onClick = () => {
     dispatch({
       type: 'CLOSE_MODAL',
     });
   };
+  useEffect(() => {
+    console.log(selectDateTodos);
+  }, [selectDateTodos]);
+  console.log(selectDateTodos);
   return (
     <StyledDailyModal dir={'column'}>
       <FlexBox dir={'row'}>
@@ -47,19 +50,23 @@ function DailyModal() {
           color={'#0c0300d1'}
         />
       </FlexBox>
-      {selectDateTodos.map((todo) => (
-        <>
-          {todo.done && <LockOver width={'520px'} height={'40px'}></LockOver>}
-          <ModalItem
-            key={todo.id}
-            id={todo.id}
-            text={todo.todo}
-            done={todo.done}
-            label={todo.label}
-            grade={todo.grade}
-          />
-        </>
-      ))}
+      {selectDateTodos ? (
+        selectDateTodos.todos.map((todo) => (
+          <>
+            {todo.done && <LockOver width={'520px'} height={'40px'}></LockOver>}
+            <ModalItem
+              key={todo.id}
+              id={todo.id}
+              text={todo.todo}
+              done={todo.done}
+              label={todo.label}
+              grade={todo.grade}
+            />
+          </>
+        ))
+      ) : (
+        <div>기록된 일정이 없습니다.</div>
+      )}
     </StyledDailyModal>
   );
 }

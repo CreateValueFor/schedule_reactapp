@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useReducer } from 'react';
+import React, { createContext, useContext, useEffect, useReducer } from 'react';
 import { dbService } from '../../firebase';
 
 //day
@@ -47,14 +47,13 @@ function Calendarreducer(state, action) {
         ...state,
         selectDate: action.current,
       };
-    case 'OPEN_MODAL':
-      console.log(action.selectDate);
-      console.log('hi');
+    case 'SET_MODAL':
       return {
         ...state,
-        isModal: !state.isModal,
         selectDateTodos: action.selectDateTodos,
+        isModal: !state.isModal,
       };
+
     case 'CLOSE_MODAL':
       return { ...state, isModal: !state.isModal, selectDateTodos: [] };
     default:
@@ -67,6 +66,8 @@ const CalendarDispatchContext = createContext();
 
 export function CalendarProvider({ children }) {
   const [state, dispatch] = useReducer(Calendarreducer, initialState);
+  const { selectDate } = state;
+  useEffect(() => {}, [selectDate]);
   return (
     <CalendarStateContext.Provider value={state}>
       <CalendarDispatchContext.Provider value={dispatch}>
